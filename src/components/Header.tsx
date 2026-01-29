@@ -2,39 +2,39 @@ import { motion } from "framer-motion";
 
 export function Header() {
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between px-6 md:px-12">
+    <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference bg-transparent px-6 py-8 md:px-12 border-b border-foreground/5 backdrop-blur-sm">
+      <nav className="max-w-[1400px] mx-auto grid grid-cols-12 items-baseline">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-black tracking-tighter"
+          className="col-span-6 md:col-span-3"
         >
-          EIGER<span className="text-accent">.</span>
+          <span className="text-2xl font-black tracking-tighter uppercase italic">ISAR FLOW</span>
         </motion.div>
         
-        <nav className="hidden space-x-12 text-sm font-medium uppercase tracking-widest md:flex">
-          {["Ascent", "Gear", "Technical", "Lab"].map((item, i) => (
-            <motion.a
+        <div className="hidden md:flex col-span-6 justify-center gap-12 text-sm font-medium tracking-[0.2em] uppercase">
+          {["Technical", "Artisanal", "Chronology", "Archive"].map((item) => (
+            <motion.a 
               key={item}
-              href="#"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="hover:text-accent transition-colors"
+              href={`#${item.toLowerCase()}`}
+              whileHover={{ scale: 1.05, letterSpacing: "0.3em" }}
+              className="hover:text-accent transition-all duration-300"
             >
               {item}
             </motion.a>
           ))}
-        </nav>
+        </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-primary px-6 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground"
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="col-span-6 md:col-span-3 text-right"
         >
-          Shop Now
-        </motion.button>
-      </div>
+          <button className="text-xs border border-foreground px-4 py-2 hover:bg-foreground hover:text-background transition-colors uppercase tracking-widest font-bold">
+            Contact System
+          </button>
+        </motion.div>
+      </nav>
     </header>
   );
 }

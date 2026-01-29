@@ -1,19 +1,19 @@
 // Update this page (the content is just a fallback if you fail to update the page)
 
 import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { FeatureGrid } from "@/components/FeatureGrid";
-import { MountainStats } from "@/components/MountainStats";
+import { Hero } from "@/components/Hero";
+import { EngineeringGrid } from "@/components/EngineeringGrid";
+import { CoffeeStream } from "@/components/CoffeeStream";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-accent selection:text-white">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-accent selection:text-accent-foreground">
       <Header />
       <main>
-        <HeroSection />
-        <FeatureGrid />
-        <MountainStats />
+        <Hero />
+        <EngineeringGrid />
+        <CoffeeStream />
       </main>
       <Footer />
     </div>
