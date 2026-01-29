@@ -1,27 +1,19 @@
+// Update this page (the content is just a fallback if you fail to update the page)
+
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { ProductGrid } from "@/components/ProductGrid";
-import { TechSpecSection } from "@/components/TechSpecSection";
-import { BrandManifesto } from "@/components/BrandManifesto";
-import { CTASection } from "@/components/CTASection";
+import { FeatureGrid } from "@/components/FeatureGrid";
+import { MountainStats } from "@/components/MountainStats";
 import { Footer } from "@/components/Footer";
-import { Orb } from "@/components/ui/orb";
 
 const Index = () => {
   return (
-    <div className="bg-background text-foreground selection:bg-accent selection:text-accent-foreground min-h-screen">
-      <Orb 
-        className="fixed top-[-20%] right-[-10%] opacity-20 pointer-events-none" 
-        size={800} 
-        color="hsl(var(--primary))" 
-      />
+    <div className="min-h-screen bg-background font-sans selection:bg-accent selection:text-white">
       <Header />
       <main>
         <HeroSection />
-        <ProductGrid />
-        <BrandManifesto />
-        <TechSpecSection />
-        <CTASection />
+        <FeatureGrid />
+        <MountainStats />
       </main>
       <Footer />
     </div>

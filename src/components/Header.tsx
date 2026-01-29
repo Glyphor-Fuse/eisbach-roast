@@ -1,32 +1,40 @@
 import { motion } from "framer-motion";
-import { Menu, Search, ShoppingBag } from "lucide-react";
 
 export function Header() {
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-      className="fixed top-0 left-0 w-full z-50 mix-blend-difference"
-    >
-      <div className="flex justify-between items-start p-6 md:p-10">
-        <div className="flex flex-col">
-          <span className="text-2xl font-bold tracking-tighter text-white">MPP</span>
-          <span className="text-[10px] tracking-widest uppercase text-white/60">Munich Peak Performance</span>
-        </div>
-
-        <nav className="hidden md:flex gap-12 text-sm font-medium uppercase tracking-widest text-white">
-          <a href="#" className="hover:text-accent transition-colors">Archive</a>
-          <a href="#" className="hover:text-accent transition-colors">Expeditions</a>
-          <a href="#" className="hover:text-accent transition-colors">Technical</a>
+    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
+      <div className="container flex h-16 items-center justify-between px-6 md:px-12">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-black tracking-tighter"
+        >
+          EIGER<span className="text-accent">.</span>
+        </motion.div>
+        
+        <nav className="hidden space-x-12 text-sm font-medium uppercase tracking-widest md:flex">
+          {["Ascent", "Gear", "Technical", "Lab"].map((item, i) => (
+            <motion.a
+              key={item}
+              href="#"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="hover:text-accent transition-colors"
+            >
+              {item}
+            </motion.a>
+          ))}
         </nav>
 
-        <div className="flex gap-6 text-white">
-          <Search size={20} className="cursor-pointer hover:text-accent transition-colors" />
-          <ShoppingBag size={20} className="cursor-pointer hover:text-accent transition-colors" />
-          <Menu size={20} className="cursor-pointer hover:text-accent transition-colors" />
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-primary px-6 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground"
+        >
+          Shop Now
+        </motion.button>
       </div>
-    </motion.header>
+    </header>
   );
 }
