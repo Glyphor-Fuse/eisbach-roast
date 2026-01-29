@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Header } from "@/components/Header";
+import { HeroSection } from "@/components/HeroSection";
+import { ProductGrid } from "@/components/ProductGrid";
+import { TechSpecSection } from "@/components/TechSpecSection";
+import { BrandManifesto } from "@/components/BrandManifesto";
+import { CTASection } from "@/components/CTASection";
+import { Footer } from "@/components/Footer";
+import { Orb } from "@/components/ui/orb";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="bg-background text-foreground selection:bg-accent selection:text-accent-foreground min-h-screen">
+      <Orb 
+        className="fixed top-[-20%] right-[-10%] opacity-20 pointer-events-none" 
+        size={800} 
+        color="hsl(var(--primary))" 
+      />
+      <Header />
+      <main>
+        <HeroSection />
+        <ProductGrid />
+        <BrandManifesto />
+        <TechSpecSection />
+        <CTASection />
+      </main>
+      <Footer />
     </div>
   );
 };
